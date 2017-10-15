@@ -7,26 +7,37 @@
   <title>Document</title>
 </head>
 <body>
-
   <div id="app">
-
     <h1>{{titulo}}</h1>
+    <div v-if="usuario.id == 1">
+      <p>Id: {{usuario.id}},</p>
+      <p>Nome {{usuario.nome}},</p>
+      <p>Profissao: {{usuario.profissao}}.</p>
+
+    </div>
+    <div v-else>Não existe funcionários com ID = 1</div>
 
   </div>
+
 
   <script src="vue.js"></script>
 
   <script>
-
     var app = new Vue({
 
       el: "#app",
+
       data: {
-        titulo: "Teste de app"
+        titulo: "Pagia 3 com Vue.js",
+
+        usuario: {
+          id: 1,
+          nome: "João Paulo",
+          profissao: "Vendedor"
+        }
+
       }
-
     })
-
 
   </script>
 
