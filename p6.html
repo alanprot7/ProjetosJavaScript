@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+      <div id="app">
+
+          <h1>{{titulo}}</h1>
+
+          <label for="">Nome</label><br>
+          <input type="text" v-model="nome">
+
+          <br><br>
+          <label for="">Telefone</label><br>
+          <input type="text" v-model="telefone">
+
+          <br><br>
+          <label for="">Deseja receber notícias?</label><br>
+          <input type="radio" value="SIM" v-model="novidades"> SIM
+          <input type="radio" value="NÃO" v-model="novidades"> NÃO
+
+          <br><br>
+          <label for="">Inderesses</label><br>
+          <input type="checkbox" value="Música" v-model="interesses"> Música <br>
+          <input type="checkbox" value="Futebol" v-model="interesses"> Futebol <br>
+          <input type="checkbox" value="Natação" v-model="interesses"> Natação <br>
+
+          <br>
+          <label for="">Conte como nos cocheceu</label><br>
+          <select v-model="conheceu">
+            <option value="">Escolha</option>
+            <option value="Internet">Internet</option>
+            <option value="Jornal">Jornal</option>
+            <option value="Televisão">Televisão</option>
+          </select>
+
+          <br><br>
+          <hr>
+
+          Nome: {{nome}} <br>
+          Telefone: {{telefone}} <br>
+          Notíticias: {{novidades}} <br>
+          Interesses: {{interesses}} <br>
+          Conheceu na: {{conheceu}} <br>
+
+          <br>
+
+      </div>
+
+
+    <button type="button" name="button">Enviar</button>
+
+  <script src="vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data: {
+        titulo: "Parte 6 com Vue.js",
+        nome:"",
+        telefone: "",
+        novidades: "",
+        interesses: [],
+        conheceu: "",
+      }
+    })
+  </script>
+</body>
+</html>
