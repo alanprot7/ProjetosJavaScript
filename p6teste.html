@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="app">
+    <h1>{{titulo}}</h1>
+
+    <label for="">Nome</label><br>
+    <input type="text" v-model="nome">
+
+    <br><br>
+    <label for="">Telefone</label><br>
+    <input type="text" v-model="telefone">
+
+    <br><br>
+    <label for="">Como nos conheceu?</label><br>
+    <select v-model="conheceu">
+      <option value="">Escolha</option>
+      <option value="TV">TV</option>
+      <option value="Internet">Internet</option>
+      <option value="Revistas">Revistas</option>
+    </select>
+
+    <br><br>
+    <label for="">Deseja receber Notícias?</label> <br>
+    <input type="radio" value="SIM" v-model="noticias">SIM <br>
+    <input type="radio" value="NÃO" v-model="noticias">NÃO <br>
+
+    <br><br>
+    <label for="">Interesses</label> <br>
+    <input type="checkbox" value="Música" v-model="interesses">Música <br>
+    <input type="checkbox" value="Futebol" v-model="interesses">Futebol <br>
+    <input type="checkbox" value="Natação" v-model="interesses">Natação <br>
+
+    <hr>
+
+    <br><br>
+    Nome: {{nome}} <br>
+    Telefone: {{telefone}} <br>
+    Como nos conheceu: {{conheceu}} <br>
+    Deseja receber notícias: {{noticias}} <br>
+    Interesses: {{interesses}} <br> <br>
+
+    <button>Enviar</button>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data:{
+        titulo: "Teste de P6",
+        nome: "",
+        noticias: "",
+        telefone: "",
+        conheceu: "",
+        interesses: []
+      }
+    })
+
+  </script>
+
+</body>
+</html>
