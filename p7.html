@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="app">
+    <h1>{{titulo}}</h1>
+    <label for="">Escolha imagem</label> <br>
+    <input type="radio" value="http://www.varietagrill.com.br/wp-content/uploads/2015/07/Hoje-%C3%A9-Dia-do-Sorvete-Conhe%C3%A7a-a-origem-1.jpg" v-model="imagem"> sorvete
+    <input type="radio" value="http://www.curtamais.com.br/uploads/conteudo/8e456c796ee6ae187b51131fa330a968.jpg" v-model="imagem"> cachorro <br> <br>
+    <img v-bind:src="imagem" width="600" alt="">
+
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data: {
+        titulo: "P7 com vue.js",
+        imagem: "",
+      }
+    })
+  </script>
+</body>
+</html>
