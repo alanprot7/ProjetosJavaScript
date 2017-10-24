@@ -10,6 +10,13 @@
 
   <div id="app">
     <h1>{{titulo}}</h1>
+
+    <label for="">Confere número perfeito</label> <br><br>
+    <input type="text" v-model="valor">
+    <button v-on:click="valorPerfeito">Confere</button>
+    <h1>{{valorConferido}}</h1>
+
+    <label for="">Calcula número perfeito</label> <br><br>
     <input type="text" v-model="numero">
     <button v-on:click="numeroExec">Calcula</button>
     <h1 v-for="(item, index) in mensagem">{{index + 1}} - {{item}}</h1>
@@ -21,9 +28,11 @@
     var app = new Vue({
       el: "#app",
       data: {
-        titulo: "Calcula Número Perfeito",
+        titulo: "Número Perfeito",
         mensagem: [],
-        numero: 0
+        numero: 0,
+        valor: 0,
+        valorConferido: ""
       },
       methods: {
         perfeito: function(n){
@@ -39,16 +48,30 @@
           this.mensagem = [];
           cont = 2;
           fim = 1;
-          while (fim <= this.numero){
-            if(cont == this.perfeito(cont)){
-              fim++;
-              this.mensagem.push(cont);
-              cont++;
+          if(this.numero > 4)
+            alert("Não posso Calcular o "+this.numero+"º Perfeito!!");
+          else
+            while (fim <= this.numero){
+              if(cont == this.perfeito(cont)){
+                fim++;
+                this.mensagem.push(cont);
+                cont++;
+              }
+              else {
+                cont++;
+              }
             }
-            else {
-              cont++;
-            }
-          }
+        },
+        valorPerfeito: function(){
+          if(this.valor == 0)
+              this.valorConferido = "";
+          else
+              if(this.valor == this.perfeito(this.valor)){
+                this.valorConferido = this.valor + " é um número Perfeito!"
+              }
+              else {
+                this.valorConferido = this.valor + " não é um número Perfeito!"
+              }
         }
       }
     })
