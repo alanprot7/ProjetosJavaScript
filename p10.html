@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+
+<div id="app">
+    <label for="">Consulta Mysql</label> <button v-on:click="consultar">Query</button>
+    <div v-for="post in posts">
+      <hr>
+      <ul>{{post.id}} - {{ post.nome }}</ul>
+    </div>
+    <hr>
+
+</div>
+
+
+  <script src="vue.js"></script>
+  <script src="jquery-3.2.1.min.js"></script>
+  <script>
+    var dataURL = 'http://localhost:1337/a548d15';
+    var app = new Vue({
+      el: "#app",
+      data: {
+        posts: []
+      },
+      methods: {
+        consultar: function(){
+          var self = this
+          $.getJSON(dataURL, function(data){
+            self.posts = data
+          });
+        }
+      },
+      // mounted(){
+      //   var self = this
+      //   $.getJSON(dataURL, function(data){
+      //     self.posts = data
+      //   });
+      // }
+    });
+  </script>
+
+</body>
+</html>
